@@ -1,5 +1,7 @@
 # rollup-plugin-minify-vanilla-web-components-template-literal
 
+[![npm](https://img.shields.io/npm/v/rollup-plugin-minify-vanilla-web-components-template-literal.svg)](https://www.npmjs.com/package/rollup-plugin-minify-vanilla-web-components-template-literal)
+
 This repository was created primarily to minify TypeScript Vanilla Web Components with Unocss in the Vite environment.
 
 This code is based on [rollup-plugin-minify-html-literals](https://github.com/asyncLiz/rollup-plugin-minify-html-literals).
@@ -26,10 +28,7 @@ Changes from the original
 
 -----
 
-[![npm](https://img.shields.io/npm/v/rollup-plugin-minify-vanilla-web-components-template-literal.svg)](https://www.npmjs.com/package/rollup-plugin-minify-vanilla-web-components-template-literal)
-
 Uses [minify-html-literals](https://www.npmjs.com/package/minify-html-literals) to minify HTML and CSS markup inside JavaScript template literal strings.
-
 
 ## Usage
 
@@ -47,6 +46,7 @@ import UnoCSS from 'unocss/vite'
 import { defineConfig } from 'vite'
 import { splitVendorChunkPlugin } from 'vite'
 import minifyHTML from 'rollup-plugin-minify-vanilla-web-components-template-literal'
+const ViteMinifyHTML = minifyHTML as any
 
 // https://vitejs.dev/config/
 export default defineConfig({
