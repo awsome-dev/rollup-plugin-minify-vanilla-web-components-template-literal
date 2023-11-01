@@ -6,7 +6,6 @@ This code is based on [rollup-plugin-minify-html-literals](https://github.com/as
 
 Changes from the original
 
-- Support for Vite in TypeScript environment (original had a type error in vite.config.ts)
 - Support for es modules (both commonjs and es modules)
 - Support for rollup 4
 - Changed test code to jest-based
@@ -20,7 +19,6 @@ Changes from the original
 このコードは [rollup-plugin-minify-html-literals](https://github.com/asyncLiz/rollup-plugin-minify-html-literals) をベースとしている。
 
 オリジナルからの変更点
-- TypeScript環境のViteに対応 （オリジナルは vite.config.ts でタイプエラー）
 - es modulesに対応 （commonjsとes moduleの両方に対応）
 - rollup 4 に対応
 - テストコードをjestベースに変更

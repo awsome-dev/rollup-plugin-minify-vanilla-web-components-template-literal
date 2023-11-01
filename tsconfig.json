@@ -8,8 +8,7 @@
     "sourceMap": true,
     "strict": true,
     "target": "esnext",
-    "outDir": "./dist/",
     "esModuleInterop": true
   },
-  "include": ["./src/**/*"]
+  "exclude": ["jest.config.ts","test"]
 }
