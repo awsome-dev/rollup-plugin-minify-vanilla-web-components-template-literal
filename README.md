@@ -35,6 +35,14 @@ Uses [minify-html-literals](https://www.npmjs.com/package/minify-html-literals) 
 
 ## Usage
 
+### Install
+
+```bash
+pnpm i rollup-plugin-minify-vanilla-web-components-template-literal
+```
+
+### Setting
+
 ```typescript
 // vite.config.ts
 import UnoCSS from 'unocss/vite'
