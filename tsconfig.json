@@ -11,5 +11,5 @@
     "esModuleInterop": true,
     "outDir": "./dist/"
   },
-  "exclude": ["jest.config.ts","test"]
+  "exclude": ["*.ts","test","dist"]
 }
