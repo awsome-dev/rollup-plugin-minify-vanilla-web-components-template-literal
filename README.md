@@ -46,7 +46,6 @@ import UnoCSS from 'unocss/vite'
 import { defineConfig } from 'vite'
 import { splitVendorChunkPlugin } from 'vite'
 import minifyHTML from 'rollup-plugin-minify-vanilla-web-components-template-literal'
-const ViteMinifyHTML = minifyHTML as any
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -65,11 +64,34 @@ export default defineConfig({
   },
   plugins: [
     splitVendorChunkPlugin(),
-    minifyHTML(),
     UnoCSS({
       mode: 'shadow-dom',
     }),
-  ]
+  ],
+  build: {
+    rollupOptions: {
+      // https://rollupjs.org/configuration-options/
+      plugins: [
+        minifyHTML({
+          // minimatch of files to minify
+          include: [],
+          // minimatch of files not to minify
+          exclude: [],
+          // set to `true` to abort bundling on a minification error
+          failOnError: false,
+          // minify-html-literals options
+          // https://www.npmjs.com/package/minify-html-literals#options
+          options: null,
+
+          // Advanced Options
+          // Override minify-html-literals function
+          minifyHTMLLiterals: null,
+          // Override rollup-pluginutils filter from include/exclude
+          filter: null
+        })
+        ]
+    },
+  }
 })
 
 ```
@@ -82,24 +104,29 @@ By default, this will minify any tagged template literal string whose tag contai
 export default {
   entry: 'index.js',
   dest: 'dist/index.js',
-  plugins: [
-    minifyHTML({
-      // minimatch of files to minify
-      include: [],
-      // minimatch of files not to minify
-      exclude: [],
-      // set to `true` to abort bundling on a minification error
-      failOnError: false,
-      // minify-html-literals options
-      // https://www.npmjs.com/package/minify-html-literals#options
-      options: null,
+  build: {
+    rollupOptions: {
+      // https://rollupjs.org/configuration-options/
+      plugins: [
+        minifyHTML({
+          // minimatch of files to minify
+          include: [],
+          // minimatch of files not to minify
+          exclude: [],
+          // set to `true` to abort bundling on a minification error
+          failOnError: false,
+          // minify-html-literals options
+          // https://www.npmjs.com/package/minify-html-literals#options
+          options: null,
 
-      // Advanced Options
-      // Override minify-html-literals function
-      minifyHTMLLiterals: null,
-      // Override rollup-pluginutils filter from include/exclude
-      filter: null
-    })
-  ]
+          // Advanced Options
+          // Override minify-html-literals function
+          minifyHTMLLiterals: null,
+          // Override rollup-pluginutils filter from include/exclude
+          filter: null
+        })
+        ]
+    },
+  },
 };
 ```
